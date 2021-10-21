@@ -17,6 +17,7 @@ Created on Thu Jul  1 19:31:36 2021
 import numpy as np
 import pdb
 
+
 # create random data
 x = np.random.rand(100, 1)
 y = np.random.rand(100, 1)
@@ -28,10 +29,10 @@ def beta_sensitivity(x, y):
     out = []
     nobs = x.shape[0]
     for ix in range(nobs):
-        np.delete(x, ix).reshape(-1,1)
-        np.delete(y, ix).reshape(-1,1)
+        xx = np.delete(x, ix).reshape(-1,1)
+        yy = np.delete(y, ix).reshape(-1,1)
     
-        bi = np.matmul(np.matmul(np.linalg.inv(np.matmul(x.transpose(), x)), x.transpose()), y)
+        bi = np.matmul(np.matmul(np.linalg.inv(np.matmul(xx.transpose(), xx)), xx.transpose()), yy)
         out.append((ix, bi[0][0]))
         
     return out
@@ -49,14 +50,15 @@ y = np.random.rand(100, 1)
 
 def beta_sensitivity(x, y):
     
-    breakpoint()
+    #breakpoint()
     out = []
     nobs = x.shape[0]
     for ix in range(nobs):
-        x = np.delete(x, ix).reshape(-1,1)
-        y = np.delete(y, ix).reshape(-1,1)
+        print(x.shape)
+        xx = np.delete(x, ix).reshape(-1,1)
+        yy = np.delete(y, ix).reshape(-1,1)
     
-        bi = np.matmul(np.matmul(np.linalg.inv(np.matmul(x.transpose(), x)), x.transpose()), y)
+        bi = np.matmul(np.matmul(np.linalg.inv(np.matmul(xx.transpose(), xx)), xx.transpose()), yy)
         out.append((ix, bi[0][0]))
         
     return out
@@ -76,7 +78,7 @@ def beta_sensitivity(x, y):
     
     out = []
     nobs = x.shape[0]
-    for ix in nobs:
+    for ix in range(nobs):
         xx = np.delete(x, ix).reshape(-1,1)
         yy = np.delete(y, ix).reshape(-1,1)
     
