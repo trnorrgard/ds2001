@@ -48,7 +48,7 @@ Test 6 favBooks(): add some books with ratings to the list, making sure some of 
 A book lover called `reader` is created.
 In test_add_book(), notice how the reader is referenced with self.  
 
-`
+```
 class BookLoverTestSuite(unittest.TestCase): 
     
     # create a book lover
@@ -56,7 +56,7 @@ class BookLoverTestSuite(unittest.TestCase):
     
     def test_add_book(self):        
         self.reader.addBook('Great Gatsby',5)
-`
+```
 
 2) The `unittests` package will run the tests in alphabetical order, which might come as a surprise, and it can foul up your test results.
 If you insert numbers in your function names, you can get them to run in the order you want (top down):
@@ -66,6 +66,13 @@ test_2_rest_of_name
 ...  
 
 3) Note the data accumulates in the object as you run additional tests
+
+4) To run the tests, put this code at the bottom of your script:
+
+```
+if __name__ == '__main__':
+    unittest.main() 
+```
 
 **FILE SUBMISSION**  
 Your submitted file should include all code, and output showing that all tests ran with OK message.
