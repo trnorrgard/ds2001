@@ -133,3 +133,4 @@ dmypy.json
 *solns*
 
 *.docx
+.Rproj.user
